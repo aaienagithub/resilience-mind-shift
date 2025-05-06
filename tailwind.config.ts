@@ -30,7 +30,7 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#4470EB",
+          DEFAULT: "#1A1A1A",
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -46,7 +46,7 @@ export default {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "#FF8360",
+          DEFAULT: "#4CAF50",
           foreground: "#FFFFFF",
         },
         popover: {
@@ -58,11 +58,11 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         brand: {
-          blue: "#4470EB",
-          coral: "#FF8360",
-          gray: "#F4F6F8",
-          darkText: "#1F2937",
-          softBlue: "#E0E7EF",
+          black: "#1A1A1A",
+          green: "#4CAF50",
+          sage: "#DDEEE2",
+          textGray: "#2E2E2E",
+          softBg: "#F9F9F9",
         },
         sidebar: {
           DEFAULT: 'hsl(var(--sidebar-background))',

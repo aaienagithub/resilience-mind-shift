@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,21 @@ import { cn } from "@/lib/utils";
 
 const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrolled]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -19,10 +34,20 @@ const Navigation = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
+    <header 
+      className={cn(
+        "sticky top-0 z-50 w-full transition-colors duration-300",
+        scrolled ? "bg-brand-black shadow-sm" : "bg-transparent"
+      )}
+    >
       <nav className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold text-brand-blue">aaiena.ai</span>
+          <span className={cn(
+            "text-2xl font-bold transition-colors",
+            scrolled ? "text-white" : "text-brand-black"
+          )}>
+            aaiena.ai
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -31,19 +56,27 @@ const Navigation = () => {
             <Link
               key={link.name}
               to={link.href}
-              className="text-gray-700 hover:text-brand-blue font-medium transition-colors"
+              className={cn(
+                "font-medium transition-colors",
+                scrolled 
+                  ? "text-white hover:text-brand-sage" 
+                  : "text-gray-700 hover:text-brand-green"
+              )}
             >
               {link.name}
             </Link>
           ))}
-          <Button className="bg-brand-coral hover:bg-opacity-90">Book a Call</Button>
+          <Button className="bg-brand-green hover:bg-opacity-90">Book a Call</Button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             type="button"
-            className="text-gray-700"
+            className={cn(
+              "transition-colors",
+              scrolled ? "text-white" : "text-gray-700"
+            )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -64,7 +97,7 @@ const Navigation = () => {
       >
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-brand-blue">aaiena.ai</span>
+            <span className="text-2xl font-bold text-brand-black">aaiena.ai</span>
           </Link>
           <button
             type="button"
@@ -80,14 +113,14 @@ const Navigation = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="block py-2 text-base font-medium text-gray-900 hover:text-brand-blue"
+                className="block py-2 text-base font-medium text-gray-900 hover:text-brand-green"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
             <Button 
-              className="w-full bg-brand-coral hover:bg-opacity-90 mt-4"
+              className="w-full bg-brand-green hover:bg-opacity-90 mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >
               Book a Call

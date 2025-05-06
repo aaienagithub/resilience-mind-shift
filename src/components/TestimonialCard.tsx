@@ -13,7 +13,7 @@ const TestimonialCard = ({ quote, name, title, image }: TestimonialCardProps) =>
     <Card className="p-6 md:p-8 shadow-md bg-white h-full flex flex-col">
       <div className="flex-grow">
         <svg
-          className="h-8 w-8 text-brand-blue mb-4"
+          className="h-8 w-8 text-brand-green mb-4"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -29,14 +29,14 @@ const TestimonialCard = ({ quote, name, title, image }: TestimonialCardProps) =>
             className="h-10 w-10 rounded-full mr-3 object-cover"
           />
         ) : (
-          <div className="h-10 w-10 rounded-full bg-brand-softBlue mr-3 flex items-center justify-center">
-            <span className="text-brand-blue font-semibold">
+          <div className="h-10 w-10 rounded-full bg-brand-sage mr-3 flex items-center justify-center">
+            <span className="text-brand-green font-semibold">
               {name.charAt(0)}
             </span>
           </div>
         )}
         <div>
-          <p className="font-semibold text-brand-darkText">{name}</p>
+          <p className="font-semibold text-brand-textGray">{name}</p>
           <p className="text-sm text-gray-500">{title}</p>
         </div>
       </div>

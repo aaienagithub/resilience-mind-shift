@@ -35,7 +35,7 @@ const HeroSection = ({
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 asChild
-                className="bg-brand-coral hover:bg-opacity-90 text-white font-semibold text-lg px-8 py-6"
+                className="bg-brand-green hover:bg-opacity-90 text-white font-semibold text-lg px-8 py-6"
               >
                 <Link to={primaryLink}>{primaryCTA}</Link>
               </Button>
@@ -44,7 +44,7 @@ const HeroSection = ({
                 <Button 
                   asChild
                   variant="outline" 
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-brand-blue font-semibold text-lg px-8 py-6"
+                  className="bg-transparent border-white text-white hover:bg-white hover:text-brand-black font-semibold text-lg px-8 py-6"
                 >
                   <Link to={secondaryLink}>{secondaryCTA}</Link>
                 </Button>

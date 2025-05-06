@@ -37,6 +37,10 @@ const ChatBot = () => {
         response = "Our pricing varies based on your needs. For individual training, therapist certification, or organizational programs, please book a call to discuss the options that best fit your goals.";
       } else if (lcMessage.includes("science") || lcMessage.includes("brain") || lcMessage.includes("neuro")) {
         response = "Aaiena is built on neuroscience principles including vagus nerve regulation, neuroplasticity, and polyvagal theory. Check out our Science page to learn more about our research-backed approach.";
+      } else if (lcMessage.includes("therapist") || lcMessage.includes("certification")) {
+        response = "Our certification program equips therapists with neuroscience-based tools to help your clients build emotional resilience. Visit our 'Get Certified' page or book a call to learn more about the program.";
+      } else if (lcMessage.includes("organization") || lcMessage.includes("company") || lcMessage.includes("team")) {
+        response = "Aaiena offers specialized resilience training for teams and organizations to reduce burnout and improve well-being. Our programs are scalable and can be customized to your needs. Visit 'For Organizations' to learn more.";
       } else {
         response = "Thank you for your message. To learn more about how Aaiena can help with emotional resilience training, please explore our website or book a call with our team for personalized guidance.";
       }
@@ -49,7 +53,7 @@ const ChatBot = () => {
     <div className="fixed bottom-6 right-6 z-40">
       {isOpen ? (
         <Card className="w-80 sm:w-96 h-96 flex flex-col shadow-lg animate-slide-in-right">
-          <div className="bg-brand-blue text-white p-3 flex justify-between items-center rounded-t-lg">
+          <div className="bg-brand-black text-white p-3 flex justify-between items-center rounded-t-lg">
             <div className="flex items-center gap-2">
               <MessageSquare size={18} />
               <h3 className="font-medium">Aaiena Assistant</h3>
@@ -70,7 +74,7 @@ const ChatBot = () => {
                   className={cn(
                     "p-3 rounded-lg max-w-[80%]",
                     msg.isUser 
-                      ? "bg-brand-blue text-white ml-auto" 
+                      ? "bg-brand-black text-white ml-auto" 
                       : "bg-gray-100 text-gray-800"
                   )}
                 >
@@ -88,7 +92,7 @@ const ChatBot = () => {
                 placeholder="Type your message..."
                 className="flex-1"
               />
-              <Button type="submit" className="bg-brand-blue hover:bg-opacity-90">
+              <Button type="submit" className="bg-brand-green hover:bg-opacity-90">
                 Send
               </Button>
             </div>
@@ -97,7 +101,7 @@ const ChatBot = () => {
       ) : (
         <Button 
           onClick={() => setIsOpen(true)} 
-          className="h-14 w-14 rounded-full shadow-lg bg-brand-blue hover:bg-opacity-90"
+          className="h-14 w-14 rounded-full shadow-lg bg-brand-black hover:bg-opacity-90"
         >
           <MessageSquare className="h-6 w-6" />
         </Button>
